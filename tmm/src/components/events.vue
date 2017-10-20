@@ -50,6 +50,9 @@
             createEvent() {
                 this.events.push(this.eventsCounter++);
             }
+        },
+        mounted() {
+            console.log( this.$parent.$data.events )
         }
     }
 </script>

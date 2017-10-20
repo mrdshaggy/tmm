@@ -42,7 +42,8 @@
                 newEvent: {
                     name: '',
                     date: '',
-                }
+                },
+                events: eventsRef
             }
         },
         firebase: {
