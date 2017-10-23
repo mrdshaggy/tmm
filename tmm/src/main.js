@@ -1,12 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 
-import BootstrapVue from 'bootstrap-vue'
-
-import VueFire from 'vuefire'
+import BootstrapVue from 'bootstrap-vue';
 
 Vue.use(BootstrapVue);
+
+
+
+import './firebase';
+import VueFire from 'vuefire';
+
 Vue.use(VueFire);
+
+
 
 new Vue({
   el: '#app',

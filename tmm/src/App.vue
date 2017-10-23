@@ -17,22 +17,7 @@
     import createEvent from './components/create-event.vue';
     import eventsList from './components/events.vue';
 
-    import Firebase from 'firebase';
-
-    // Initialize Firebase
-    let config = {
-        apiKey: "AIzaSyCiaZ6D17B_lr1OiGqpposNJDbZ_rW-nJY",
-        authDomain: "temm-dd89d.firebaseapp.com",
-        databaseURL: "https://temm-dd89d.firebaseio.com",
-        projectId: "temm-dd89d",
-        storageBucket: "temm-dd89d.appspot.com",
-        messagingSenderId: "733607351069"
-    };
-
-    let app = Firebase.initializeApp(config);
-    let db = app.database();
-
-    let eventsRef = db.ref('events');
+    import {db} from './firebase';
 
     export default {
         name: 'app',
@@ -43,11 +28,12 @@
                     name: '',
                     date: '',
                 },
-                events: eventsRef
             }
         },
         firebase: {
-            events: eventsRef
+            events: {
+                source: db.ref('events')
+            }
         },
         methods: {
             createEvent() {

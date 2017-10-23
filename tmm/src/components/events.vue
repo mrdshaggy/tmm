@@ -1,14 +1,14 @@
 <template>
     <div>
         <h3>{{ pageTitle }}</h3>
-        <p>Pease create your first event</p>
+        <p>Please create your first event</p>
 
         <div>
             <b-card no-body>
                 <b-tabs card>
                     <!-- Render Tabs -->
-                    <b-tab :title="`Event ${i}`" v-for="i in events" :key="i">
-                        Tab Contents {{i}}
+                    <b-tab :title="`${i.name}`" v-for="i in events" :key="i">
+                        Tab Contents {{i.name}}
                         <b-btn size="sm" variant="danger" class="float-right" @click="()=>removeEvent(i)">
                             Close tab
                         </b-btn>
@@ -31,12 +31,18 @@
 </template>
 
 <script>
+    import {db} from '../firebase';
+
     export default {
         data() {
             return {
                 pageTitle: 'Events',
-                events: [],
                 eventsCounter: 0
+            }
+        },
+        firebase: {
+            events: {
+                source: db.ref('events')
             }
         },
         methods: {
@@ -52,7 +58,8 @@
             }
         },
         mounted() {
-            console.log( this.$parent.$data.events )
+            console.log( this.$firebaseRefs.events )
+//            console.log(this.$firebaseRefs.events);
         }
     }
 </script>
