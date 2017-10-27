@@ -7,10 +7,10 @@
             <b-card no-body>
                 <b-tabs card>
                     <!-- Render Tabs -->
-                    <b-tab :title="`${i.name}`" v-for="i in events" :key="i">
+                    <b-tab :title="i.name" v-for="i, id in events" :key="id">
                         Tab Contents {{i.name}}
                         <b-btn size="sm" variant="danger" class="float-right" @click="()=>removeEvent(i)">
-                            Close tab
+                            Delete event
                         </b-btn>
                     </b-tab>
 
@@ -51,15 +51,19 @@
                     if (this.events[i] === x) {
                         this.events.splice(i, 1);
                     }
+                    this.removeEv(this.events[i]);
                 }
             },
             createEvent() {
                 this.events.push(this.eventsCounter++);
+                console.log(this.eventsCounter);
+            },
+            removeEv(currentEv) {
+                this.$firebaseRefs.events.child(currentEv['.key']).remove();
             }
         },
         mounted() {
             console.log( this.$firebaseRefs.events )
-//            console.log(this.$firebaseRefs.events);
         }
     }
 </script>
