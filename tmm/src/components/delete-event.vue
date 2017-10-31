@@ -7,18 +7,18 @@
                  hide-footer>
             <h3 clas="my-4">Are you sure you want to delete this event?</h3>
             <div class="text-right">
-                <b-button variant="danger" @click="removeEvent()">Delete</b-button>
-                <b-button variant="secondary" @click="hideModal()">Cancel</b-button>
+                <b-button variant="danger" @click="ok">Delete</b-button>
+                <b-button variant="secondary" @click="hideModal">Cancel</b-button>
             </div>
         </b-modal>
 
-        <b-alert :show="dismissCountDown"
-                 dismissible
-                 variant="success"
-                 @dismissed="dismissCountdown=0"
-                 @dismiss-count-down="countDownChanged">
-            {{ alertMsg }}
-        </b-alert>
+        <!--<b-alert :show="dismissCountDown"-->
+                 <!--dismissible-->
+                 <!--variant="success"-->
+                 <!--@dismissed="dismissCountdown=0"-->
+                 <!--@dismiss-count-down="countDownChanged">-->
+            <!--{{ alertMsg }}-->
+        <!--</b-alert>-->
     </div>
 </template>
 
@@ -30,7 +30,8 @@
             return {
                 alertMsg: '',
                 dismissSecs: 5,
-                dismissCountDown: 0
+                dismissCountDown: 0,
+                id: null,
             }
         },
         firebase: {
@@ -39,14 +40,15 @@
             }
         },
         methods: {
-            removeEvent(x) {
-//                for (let i = 0; i < this.events.length; i++) {
-//                    if (this.events[i] === x) {
-//                        this.events.splice(i, 1);
-//                    }
-//                    this.$firebaseRefs.events.child(x['.key']).remove();
-//                }
-
+            ok() {
+                this.$firebaseRefs.events.child(this.id).remove();
+                this.removeEvent();
+            },
+            show(id) {
+                this.id = id;
+                this.$refs.modalDeleteEvent.show();
+            },
+            removeEvent() {
                 this.hideModal();
                 this.alertMsg = 'Event deleted!';
                 this.dismissCountDown = this.dismissSecs;

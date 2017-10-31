@@ -21,13 +21,7 @@
             </b-form>
         </b-modal>
 
-        <b-alert :show="dismissCountDown"
-                 dismissible
-                 variant="success"
-                 @dismissed="dismissCountdown=0"
-                 @dismiss-count-down="countDownChanged">
-            {{ alertMsg }}
-        </b-alert>
+        <app-alert slot="alertMessage" ref="alert"></app-alert>
     </div>
 </template>
 
@@ -41,9 +35,6 @@
                     name: '',
                     date: '',
                 },
-                alertMsg: '',
-                dismissSecs: 5,
-                dismissCountDown: 0
             }
         },
         firebase: {
@@ -57,27 +48,20 @@
 //                alert(JSON.stringify(this.form));
 //                var json = JSON.stringify(this.form);
                 this.hideModal();
-                this.alertMsg = 'Event created!';
-                this.dismissCountDown = this.dismissSecs;
+                this.$refs.alert.showAlert('success', 'Event created!');
+
                 this.$firebaseRefs.events.push({name: this.newEvent.name, date: this.newEvent.date});
+            },
+            notification() {
+
             },
             hideModal() {
                 this.$refs.modalCreateEvent.hide();
-            },
-            countDownChanged(dismissCountDown) {
-                this.dismissCountDown = dismissCountDown;
-            },
+            }
         }
     };
 </script>
 
 <style lang="scss">
-    .alert {
-        position: fixed;
-        right: 30px;
-        top: 30px;
-        z-index: 10;
-        width: 100%;
-        max-width: 300px;
-    }
+
 </style>

@@ -13,7 +13,7 @@
                                         :sub-title="i.date">
 
                                     <b-button-group size="sm">
-                                        <b-btn size="sm" variant="danger" class="float-right" v-b-modal.modalDeleteEvent>
+                                        <b-btn size="sm" variant="danger" class="float-right" @click="removeEvent(i['.key'])">
                                             Delete
                                         </b-btn>
                                         <b-btn size="sm" variant="info" class="float-right">
@@ -44,7 +44,7 @@
             </b-card>
         </div>
 
-        <app-delete-event></app-delete-event>
+        <app-delete-event ref="deleteEvent"></app-delete-event>
     </div>
 </template>
 
@@ -70,17 +70,11 @@
             'app-delete-event': deleteEvent,
         },
         methods: {
-            removeEvent(x) {
-                for (let i = 0; i < this.events.length; i++) {
-                    if (this.events[i] === x) {
-                        this.events.splice(i, 1);
-                    }
-                    this.$firebaseRefs.events.child(x['.key']).remove();
-                }
+            removeEvent(id) {
+                this.$refs.deleteEvent.show(id);
             },
             createEvent() {
                 this.events.push(this.eventsCounter++);
-                console.log(this.eventsCounter);
             }
         },
         mounted() {
