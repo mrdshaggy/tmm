@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c54ac7-9ccc-4b15-815f-7e4cf54cdcba" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmm/src/components/alerts/alert.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/package-lock.json" afterPath="$PROJECT_DIR$/tmm/package-lock.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/package.json" afterPath="$PROJECT_DIR$/tmm/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/components/create-event.vue" afterPath="$PROJECT_DIR$/tmm/src/components/create-event.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/components/delete-event.vue" afterPath="$PROJECT_DIR$/tmm/src/components/delete-event.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/components/events.vue" afterPath="$PROJECT_DIR$/tmm/src/components/events.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/main.js" afterPath="$PROJECT_DIR$/tmm/src/main.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/tmm/src/components/delete-event.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="353">
-              <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+              <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -80,9 +76,11 @@
       <file leaf-file-name="create-event.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tmm/src/components/create-event.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="50" column="51" lean-forward="false" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-              <folding />
+            <state relative-caret-position="570">
+              <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+              <folding>
+                <element signature="e#1509#1540#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/tmm/src/components/alerts/alert.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+              <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -111,11 +109,11 @@
         <option value="$PROJECT_DIR$/tmm/src/components/alerts/alert-success.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/new-payment.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/notification.vue" />
-        <option value="$PROJECT_DIR$/tmm/package.json" />
         <option value="$PROJECT_DIR$/tmm/src/components/events.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/delete-event.vue" />
         <option value="$PROJECT_DIR$/tmm/src/main.js" />
         <option value="$PROJECT_DIR$/tmm/src/components/alerts/alert.vue" />
+        <option value="$PROJECT_DIR$/tmm/package.json" />
         <option value="$PROJECT_DIR$/tmm/src/components/create-event.vue" />
       </list>
     </option>
@@ -224,12 +222,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1508787318469</updated>
-      <workItem from="1508787321504" duration="18201000" />
+      <workItem from="1508787321504" duration="24066000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18201000" />
+    <option name="totallyTimeSpent" value="24066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="29" y="30" width="1619" height="959" extended-state="0" />
@@ -299,14 +297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmm/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmm/src/components/notification.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -329,7 +319,7 @@
     <entry file="file://$PROJECT_DIR$/tmm/src/components/delete-event.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
-          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -347,16 +337,26 @@
     <entry file="file://$PROJECT_DIR$/tmm/src/components/alerts/alert.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmm/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tmm/src/components/create-event.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="50" column="51" lean-forward="false" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-          <folding />
+        <state relative-caret-position="570">
+          <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+          <folding>
+            <element signature="e#1509#1540#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
