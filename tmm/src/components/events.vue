@@ -9,9 +9,9 @@
                     <b-tab :title="i.name" v-for="i, id in events" :key="id">
                         <div class="row">
                             <div class="col-sm-3 mb-3">
-                                <b-card :title="i.name"
-                                        :sub-title="i.date">
-
+                                <b-card :title="i.name">
+                                    <p>Start: {{ i.startDate}}</p>
+                                    <p>End: {{ i.endDate}}</p>
                                     <b-button-group size="sm">
                                         <b-btn size="sm" variant="danger" class="float-right" @click="removeEvent(i['.key'])">
                                             Delete
@@ -83,6 +83,11 @@
     }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+    p {
+        margin-bottom: 0;
+    }
+    .btn-group {
+        margin-top: 10px;
+    }
 </style>

@@ -8,17 +8,23 @@
                                    v-model="newEvent.name"
                     ></b-form-input>
                 </b-form-group>
-                <b-form-group label="Date:" label-for="eventDate">
-                    <!--<b-form-input id="eventDate" type="text" required-->
-                                  <!--placeholder="Enter event date"-->
-                                   <!--v-model="newEvent.date"-->
-                    <!--&gt;</b-form-input>-->
-                    <app-datepicker
-                            id="eventDate"
-                            :i18n="ptBr"
-                            v-model="newEvent.date"
-                            v-on:checkOutChanged="getDate">
-                    </app-datepicker>
+                <b-form-group label="Start Date:" label-for="eventStartDate">
+                    <app-datetime
+                            required
+                            auto-close
+                            input-class="form-control"
+                            placeholder="Date of start"
+                            id="eventStartDate"
+                            v-model="newEvent.startDate"></app-datetime>
+                </b-form-group>
+                <b-form-group label="End Date:" label-for="eventEndDate">
+                    <app-datetime
+                            required
+                            auto-close
+                            input-class="form-control"
+                            placeholder="Finish date"
+                            id="eventEndtDate"
+                            v-model="newEvent.endDate"></app-datetime>
                 </b-form-group>
                 <div class="float-right">
                     <b-button type="submit" variant="primary">Submit</b-button>
@@ -33,23 +39,15 @@
 
 <script>
     import {db} from '../firebase';
-    import Datepicker from 'vue-hotel-datepicker';
 
     export default {
         data() {
             return {
                 newEvent: {
                     name: '',
-                    date: '',
+                    startDate: '',
+                    endDate: '',
                 },
-                ptBr: {
-                    night: 'Night',
-                    nights: 'Nights',
-                    'day-names': ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                    'check-in': 'Start Date',
-                    'check-out': 'End Date',
-                    'month-names': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                }
             }
         },
         firebase: {
@@ -58,7 +56,7 @@
             }
         },
         components: {
-            'app-datepicker': Datepicker
+
         },
         methods: {
             onSubmit(evt) {
@@ -66,20 +64,15 @@
                 this.hideModal();
                 this.$refs.alert.showAlert('success', 'Event created!');
 
-                this.$firebaseRefs.events.push({name: this.newEvent.name, date: this.newEvent.date});
+                var sd = this.newEvent.startDate,
+                    ed = this.newEvent.endDate
+                sd = sd.substring(0, sd.indexOf('T'));
+                ed = ed.substring(0, ed.indexOf('T'));
+
+                this.$firebaseRefs.events.push({name: this.newEvent.name, startDate: sd, endDate: ed});
             },
             getDate() {
-                let dates = [];
-                dates = document.getElementsByClassName('datepicker__input');
 
-                var d = setTimeout(function () {
-                    let sd, ed;
-                    sd = dates[0].value.toString();
-                    ed = dates[1].value.toString();
-                    return sd + ' - ' + ed;
-                },100);
-                console.log(d);
-                this.newEvent.date = '' + d;
             },
             hideModal() {
                 this.$refs.modalCreateEvent.hide();
@@ -89,5 +82,7 @@
 </script>
 
 <style lang="scss">
-
+    .form-control {
+        background: #fff!important;
+    }
 </style>

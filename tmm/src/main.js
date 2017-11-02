@@ -15,6 +15,10 @@ Vue.use(VueFire);
 import Alert from './components/alerts/alert.vue';
 Vue.component('app-alert', Alert);
 
+import { Datetime } from 'vue-datetime';
+Vue.use(Datetime);
+Vue.component('app-datetime', Datetime);
+
 new Vue({
   el: '#app',
   render: h => h(App)

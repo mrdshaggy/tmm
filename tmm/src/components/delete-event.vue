@@ -11,14 +11,6 @@
                 <b-button variant="secondary" @click="hideModal">Cancel</b-button>
             </div>
         </b-modal>
-
-        <!--<b-alert :show="dismissCountDown"-->
-                 <!--dismissible-->
-                 <!--variant="success"-->
-                 <!--@dismissed="dismissCountdown=0"-->
-                 <!--@dismiss-count-down="countDownChanged">-->
-            <!--{{ alertMsg }}-->
-        <!--</b-alert>-->
     </div>
 </template>
 
@@ -64,12 +56,5 @@
 </script>
 
 <style lang="scss">
-    .alert {
-        position: fixed;
-        right: 30px;
-        top: 30px;
-        z-index: 10;
-        width: 100%;
-        max-width: 300px;
-    }
+
 </style>
