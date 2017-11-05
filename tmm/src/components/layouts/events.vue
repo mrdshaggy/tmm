@@ -3,6 +3,10 @@
         <h3>{{ pageTitle }}</h3>
         <p>Please create your first event</p>
 
+        <div v-for="event in events">
+            {{ event.name }} - {{ event.startDate }} - {{ event.endDate }}
+        </div>
+
         <div>
             <b-card no-body>
                 <b-tabs card>
@@ -49,9 +53,9 @@
 </template>
 
 <script>
-    import {db} from '../firebase';
-    import newPayment from './new-payment.vue';
-    import deleteEvent from './delete-event.vue';
+    import {db} from '../../firebase';
+    import newPayment from '../new-payment.vue';
+    import deleteEvent from '../delete-event.vue';
 
     export default {
         data() {
