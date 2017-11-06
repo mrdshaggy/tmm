@@ -1,48 +1,57 @@
 <template>
     <div class="header">
         <b-navbar toggleable="md" type="dark" variant="primary">
-
             <b-nav-toggle target="nav_collapse"></b-nav-toggle>
-
-
             <router-link to="/">
                 <b-navbar-brand>
                     <img src="../../assets/logo-tmm.svg" alt="" class="logo">
-
                     <slot name="title" class="title"></slot>
                 </b-navbar-brand>
             </router-link>
 
             <b-collapse is-nav id="nav_collapse">
-
                 <b-nav is-nav-bar class="ml-auto">
-                    <b-nav is-nav-bar>
-                        <li class="nav-item">
-                            <router-link to="/" class="nav-link">Home</router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/events" class="nav-link">Events</router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/friends" class="nav-link">Friends</router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/currencies" class="nav-link">Currencies</router-link>
-                        </li>
-                    </b-nav>
-                    <b-button variant="success">Create Event</b-button>
+                    <!--if logged-->
+                    <template v-if="logged">
+                        <b-nav is-nav-bar>
+                            <li class="nav-item">
+                                <router-link to="/" class="nav-link">Home</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link to="/events" class="nav-link">Events</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link to="/friends" class="nav-link">Friends</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link to="/currencies" class="nav-link">Currencies</router-link>
+                            </li>
+                        </b-nav>
+                        <b-button variant="success">Create Event</b-button>
+                        <b-nav-item-dropdown class="user" right>
+                            <template slot="button-content">
+                                <img :src="this.$parent.usr.photo" alt="">
+                            </template>
+                            <b-dropdown-item>Hello, {{ this.$parent.usr.name }}!</b-dropdown-item>
+                            <b-dropdown-divider></b-dropdown-divider>
+                            <router-link to="/profile" class="dropdown-item">Profile</router-link>
+                            <b-dropdown-item href="#" @click.prevent="signOut">Signout</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                    </template>
 
-                    <b-nav-item-dropdown class="user" right>
-                        <!-- Using button-content slot -->
+                    <template v-else>
+                        <b-nav is-nav-bar>
+                            <li class="nav-item">
+                                <router-link to="/" class="nav-link">Home</router-link>
+                            </li>
+                        </b-nav>
 
-                        <template slot="button-content">
-                            <img :src="usr.photo" alt="">
-                        </template>
-                        <b-dropdown-item>Hello, {{ usr.name }}!</b-dropdown-item>
-                        <b-dropdown-divider></b-dropdown-divider>
-                        <b-dropdown-item href="#">Profile</b-dropdown-item>
-                        <b-dropdown-item href="#" @click.prevent="signOut">Signout</b-dropdown-item>
-                    </b-nav-item-dropdown>
+                        <router-link to="/login">
+                            <b-button variant="success">Log In</b-button>
+                        </router-link>
+                    </template>
+
+
                 </b-nav>
 
             </b-collapse>
@@ -54,37 +63,29 @@
     import firebase from 'firebase';
 
     export default {
+        props: ['logged'],
         data() {
-            return {
-                logged: false,
-                usr: {
-                    name: 'asdas',
-                    email: '',
-                    photo: '',
-                }
-            }
+            return {}
         },
         methods: {
             signOut() {
-                firebase.auth().signOut().then(function () {
+                firebase.auth().signOut().then(() => {
                     console.log('out successfull');
+                    location.href = '/';
                 }, function (error) {
                     console.log('out error');
                 });
             },
-            checkUser() {
-                firebase.auth().onAuthStateChanged(function(user) {
-                    if (user) {
-                        this.logged = true;
-                        this.usr.name = user.displayName;
-                        this.usr.email = user.displayName;
-                        this.usr.photo = user.photoURL;
-                        console.log('user is logged', this.logged);
-                    } else {
-                        console.log('user is out');
-                        this.logged = false;
-                    }
-                });
+
+        },
+        watch: {
+            logged: function (val) {
+                if (val) {
+
+                }
+                else {
+
+                }
             }
         }
     }

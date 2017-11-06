@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <app-header>
+        <app-header :logged="logged">
             <span slot="title">{{ title }}</span>
         </app-header>
 
@@ -8,6 +8,8 @@
             <div class="container-fluid">
                 <router-view>
                     <app-login></app-login>
+
+                    <app-profile></app-profile>
 
                     <app-create-event></app-create-event>
 
@@ -27,6 +29,7 @@
     import createEvent from './components/create-event.vue';
     import eventsList from './components/layouts/events.vue';
     import login from './components/layouts/login.vue';
+    import profile from './components/layouts/profile.vue';
     import firebase from 'firebase';
 
     import {db} from './firebase';
@@ -40,6 +43,13 @@
                     name: '',
                     date: '',
                 },
+                logged: false,
+                usr: {
+                    name: '',
+                    email: '',
+                    photo: '',
+                    phone: '',
+                }
             }
         },
         firebase: {
@@ -48,9 +58,20 @@
             }
         },
         methods: {
-            createEvent() {
-
-            },
+            checkUser() {
+                firebase.auth().onAuthStateChanged((user) => {
+                    if (user) {
+                        this.logged = true;
+                        this.usr.name = user.displayName;
+                        this.usr.email = user.email;
+                        this.usr.photo = user.photoURL;
+                        this.usr.phone = user.phoneNumber;
+                        console.log(user);
+                    } else {
+                        this.logged = false;
+                    }
+                });
+            }
         },
         components: {
             'app-create-event': createEvent,
@@ -58,16 +79,10 @@
             'app-header': header,
             'app-footer': footer,
             'app-login': login,
+            'app-profile': profile,
         },
         mounted() {
-            firebase.auth().onAuthStateChanged(function(user) {
-                if (user) {
-                    // User is signed in.
-//                    location.href = '/events';
-                } else {
-//                    location.href = '/login';
-                }
-            });
+            this.checkUser();
         }
     }
 </script>

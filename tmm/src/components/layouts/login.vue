@@ -25,36 +25,22 @@
                 gp: googleProvider,
             }
         },
-        conponents: {
-
-        },
         methods: {
             auth(provider) {
-                firebase.auth().signInWithPopup(provider).then(function(result) {
+                firebase.auth().signInWithPopup(provider).then((result) => {
                     // This gives you a Google Access Token. You can use it to access the Google API.
                     var token = result.credential.accessToken;
                     var user = result.user;
-//                    console.log(user);
-                    console.log(user.displayName);
-                    console.log(user.email);
-                    console.log(user.photoURL);
-
-//                    location.href = '/events';
                     this.$router.push('events');
                 }).catch(function(error) {
-                    // Handle Errors here.
                     var errorCode = error.code;
                     var errorMessage = error.message;
-                    // The email of the user's account used.
                     var email = error.email;
                     // The firebase.auth.AuthCredential type that was used.
                     var credential = error.credential;
                 });
             }
         },
-        mounted() {
-
-        }
     }
 </script>
 

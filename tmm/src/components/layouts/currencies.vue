@@ -25,6 +25,22 @@
             <b-button type="submit" variant="primary">Submit</b-button>
             <b-button type="reset" variant="secondary">Reset</b-button>
         </b-form>
+
+        <p>
+            <br><br><br>
+            Basic USD</p>
+
+        <p>
+            Add currency:
+            <br>
+            name EUR
+            <br>
+            1 usd = N eur
+            <br>
+            button add
+        </p>
+
+
     </div>
 </template>
 

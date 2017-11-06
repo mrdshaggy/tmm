@@ -32,6 +32,7 @@ import Login from './components/layouts/login.vue';
 import Currencies from './components/layouts/currencies.vue';
 import Events from './components/layouts/events.vue';
 import Friends from './components/layouts/friends.vue';
+import Profile from './components/layouts/profile.vue';
 
 var routes = [
     { path: '/', component: Home },
@@ -39,6 +40,7 @@ var routes = [
     { path: '/currencies', component: Currencies },
     { path: '/events', component: Events },
     { path: '/friends', component: Friends },
+    { path: '/profile', component: Profile },
 ];
 
 var router = new VueRouter({
