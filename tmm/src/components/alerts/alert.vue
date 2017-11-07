@@ -36,7 +36,7 @@
         position: fixed;
         right: 30px;
         top: 30px;
-        z-index: 10;
+        z-index: 110;
         width: 100%;
         max-width: 300px;
     }

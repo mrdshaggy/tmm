@@ -31,8 +31,10 @@ import Home from './components/layouts/home.vue';
 import Login from './components/layouts/login.vue';
 import Currencies from './components/layouts/currencies.vue';
 import Events from './components/layouts/events.vue';
+import Event from './components/layouts/event-detailed.vue';
 import Friends from './components/layouts/friends.vue';
 import Profile from './components/layouts/profile.vue';
+import CreateEvent from './components/layouts/create-event.vue';
 
 var routes = [
     { path: '/', component: Home },
@@ -41,6 +43,9 @@ var routes = [
     { path: '/events', component: Events },
     { path: '/friends', component: Friends },
     { path: '/profile', component: Profile },
+    { path: '/create-event', component: CreateEvent },
+    { path: '/events/event', component: Event }
+    // { path: '/events/:event_id', component: Event }
 ];
 
 var router = new VueRouter({

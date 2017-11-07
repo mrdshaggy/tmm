@@ -26,7 +26,7 @@
 <script>
     import header from './components/modules/header.vue';
     import footer from './components/modules/footer.vue';
-    import createEvent from './components/create-event.vue';
+    import createEvent from './components/layouts/create-event.vue';
     import eventsList from './components/layouts/events.vue';
     import login from './components/layouts/login.vue';
     import profile from './components/layouts/profile.vue';

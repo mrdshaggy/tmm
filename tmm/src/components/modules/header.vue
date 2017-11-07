@@ -27,7 +27,9 @@
                                 <router-link to="/currencies" class="nav-link">Currencies</router-link>
                             </li>
                         </b-nav>
-                        <b-button variant="success">Create Event</b-button>
+
+                        <router-link to="create-event" class="btn btn-success">Create Event</router-link>
+
                         <b-nav-item-dropdown class="user" right>
                             <template slot="button-content">
                                 <img :src="this.$parent.usr.photo" alt="">
