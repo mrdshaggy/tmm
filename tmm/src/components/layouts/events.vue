@@ -2,17 +2,19 @@
     <div>
         <div class="events-group">
             <h4>Current events</h4>
+            <input type="text" v-model="filter">
+
             <b-card-group columns>
                 <b-card v-for="event, id in events"
+                        :key="event.id"
                         img-src="https://placekitten.com/500/350"
                         img-fluid
                         :img-alt="event.name"
                         img-top
                         class="card-event">
                     <b-card-body>
-                        <router-link to="/events/event">
+                        <router-link :to="{ name: 'event', params: { event_id: event['.key'] }}">
                             <h3>{{ event.name }}</h3>
-                            <p>{{id}}</p>
                         </router-link>
                         From: {{ event.startDate }}
                         <br>
@@ -44,6 +46,7 @@
     export default {
         data() {
             return {
+                filter: '',
                 pageTitle: 'Events',
                 eventsCounter: 0
             }
@@ -56,8 +59,17 @@
         methods: {
 
         },
+        computed: {
+            filteredItems() {
+                return this.$firebaseRefs.events.forEach((i) => {
+                    return i['name'].filter(item => {
+                        return item.type.indexOf(this.search.toLowerCase()) > -1
+                    })
+                })
+            }
+        },
         mounted() {
-//            console.log(this.$firebaseRefs.events)
+            console.log(this.$firebaseRefs.events)
 
         }
     }

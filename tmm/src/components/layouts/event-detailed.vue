@@ -1,6 +1,11 @@
 <template>
     <div>
         <h1>Event detailed</h1>
+        <p>
+            {{event.name}}
+            {{event.startDate}}
+            {{event.endDate}}
+        </p>
 
         <b-btn v-b-modal.modalDeleteEvent variant="danger">Remove Event</b-btn>
 
@@ -18,8 +23,7 @@
     export default {
         data() {
             return {
-                pageTitle: 'Events',
-                eventsCounter: 0
+                pageTitle: 'Event',
             }
         },
         firebase: {
@@ -40,7 +44,8 @@
             }
         },
         mounted() {
-            console.log(this.$firebaseRefs.events)
+            console.log(this.eventKey)
+
 
         }
     }

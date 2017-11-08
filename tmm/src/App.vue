@@ -66,7 +66,7 @@
                         this.usr.email = user.email;
                         this.usr.photo = user.photoURL;
                         this.usr.phone = user.phoneNumber;
-                        console.log(user);
+//                        console.log(user);
                     } else {
                         this.logged = false;
                     }

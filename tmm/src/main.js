@@ -44,8 +44,11 @@ var routes = [
     { path: '/friends', component: Friends },
     { path: '/profile', component: Profile },
     { path: '/create-event', component: CreateEvent },
-    { path: '/events/event', component: Event }
-    // { path: '/events/:event_id', component: Event }
+    { path: '/events/event/:event_id',
+        name: 'event',
+        component: Event,
+        props: { eventKey: ':event_id' }
+    }
 ];
 
 var router = new VueRouter({

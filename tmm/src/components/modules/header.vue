@@ -81,14 +81,7 @@
 
         },
         watch: {
-            logged: function (val) {
-                if (val) {
 
-                }
-                else {
-
-                }
-            }
         }
     }
 </script>
