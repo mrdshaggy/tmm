@@ -26,9 +26,12 @@
                 pageTitle: 'Event',
             }
         },
-        firebase: {
-            events: {
-                source: db.ref('events')
+        firebase() {
+            return {
+                event: {
+                    source: db.ref('events').child(this.$route.params['event_id']),
+                    asObject: true
+                }
             }
         },
         components: {
@@ -44,9 +47,7 @@
             }
         },
         mounted() {
-            console.log(this.eventKey)
-
-
+            console.log('Barada lox')
         }
     }
 </script>

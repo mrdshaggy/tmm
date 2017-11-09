@@ -46,8 +46,7 @@ var routes = [
     { path: '/create-event', component: CreateEvent },
     { path: '/events/event/:event_id',
         name: 'event',
-        component: Event,
-        props: { eventKey: ':event_id' }
+        component: Event
     }
 ];
 

@@ -57,11 +57,10 @@
             }
         },
         methods: {
-
         },
         computed: {
             filteredItems() {
-                return this.$firebaseRefs.events.forEach((i) => {
+                return this.events.forEach((i) => {
                     return i['name'].filter(item => {
                         return item.type.indexOf(this.search.toLowerCase()) > -1
                     })
@@ -69,7 +68,7 @@
             }
         },
         mounted() {
-            console.log(this.$firebaseRefs.events)
+            console.log(this.events)
 
         }
     }
