@@ -1,12 +1,15 @@
 <template>
     <div>
         <div class="events-group">
-            <h4>Current events</h4>
-            <input type="text" v-model="filter">
+            <h5 class="text-center mb-3">Hey, {{ this.$parent.usr.name }}, you have {{ eventsCounter }} events!</h5>
+            <div class="filter mb-4">
+                <span>Filter by name:</span>
+                <input type="text" v-model="filter">
+            </div>
 
+            <h4>Current events</h4>
             <b-card-group columns>
-                <b-card v-for="event, id in events"
-                        :key="event.id"
+                <b-card v-for="event in events"
                         img-src="https://placekitten.com/500/350"
                         img-fluid
                         :img-alt="event.name"
@@ -48,7 +51,9 @@
             return {
                 filter: '',
                 pageTitle: 'Events',
-                eventsCounter: 0
+                eventsCounter: 0,
+                localEvents: [],
+                eventsNames: [],
             }
         },
         firebase: {
@@ -60,16 +65,28 @@
         },
         computed: {
             filteredItems() {
-                return this.events.forEach((i) => {
-                    return i['name'].filter(item => {
-                        return item.type.indexOf(this.search.toLowerCase()) > -1
-                    })
+                return this.eventsNames.filter(item => {
+                    return item.type.toLowerCase().indexOf(this.search.toLowerCase()) > -1
                 })
+            },
+            getEventsCounter() {
+                this.eventsCounter = this.events.length;
             }
         },
         mounted() {
-            console.log(this.events)
-
+            this.getEventsCounter;
+        },
+        updated() {
+            this.getEventsCounter;
+//
+//            for (const key of Object.keys(this.events)) {
+//                console.log(key, this.events[key]['name']);
+//                this.eventsNames.push(this.events[key]['name']);
+//            }
+//
+//            this.localEvents = this.events;
+//
+//            console.log(this.eventsNames);
         }
     }
 </script>

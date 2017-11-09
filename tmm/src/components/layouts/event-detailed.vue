@@ -1,8 +1,7 @@
 <template>
     <div>
-        <h1>Event detailed</h1>
+        <h1>{{event.name}}</h1>
         <p>
-            {{event.name}}
             {{event.startDate}}
             {{event.endDate}}
         </p>

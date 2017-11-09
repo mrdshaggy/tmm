@@ -56,6 +56,8 @@ var router = new VueRouter({
 });
 Vue.use(router);
 
+
+
 //init app
 new Vue({
   el: '#app',

@@ -15,16 +15,16 @@
                     <template v-if="logged">
                         <b-nav is-nav-bar>
                             <li class="nav-item">
-                                <router-link to="/" class="nav-link">Home</router-link>
+                                <router-link to="/" class="nav-link" exact-active-class="active">Home</router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link to="/events" class="nav-link">Events</router-link>
+                                <router-link to="/events" class="nav-link" exact-active-class="active">Events</router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link to="/friends" class="nav-link">Friends</router-link>
+                                <router-link to="/friends" class="nav-link" exact-active-class="active">Friends</router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link to="/currencies" class="nav-link">Currencies</router-link>
+                                <router-link to="/currencies" class="nav-link" exact-active-class="active">Currencies</router-link>
                             </li>
                         </b-nav>
 
@@ -153,7 +153,7 @@
         transition: 0.3s;
     }
 
-    .nav-link:hover:after {
+    .nav-link:hover:after, .nav-link.active:after {
         bottom: -2px;
         opacity: 1;
     }
