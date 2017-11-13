@@ -3,11 +3,17 @@
         <h1>{{event.name}}</h1>
         <p>
             {{event.startDate}}
+            <br>
             {{event.endDate}}
+            <br>
+            {{event.description}}
+            <br>
+            {{event.image}}
+            <br>
+        <div v-html="event.map"></div>
         </p>
 
         <b-btn v-b-modal.modalDeleteEvent variant="danger">Remove Event</b-btn>
-
 
 
         <app-delete-event ref="deleteEvent"></app-delete-event>
@@ -23,6 +29,7 @@
         data() {
             return {
                 pageTitle: 'Event',
+                eventId: '',
             }
         },
         firebase() {
@@ -40,13 +47,10 @@
         methods: {
             removeEvent(id) {
                 this.$refs.deleteEvent.show(id);
-            },
-            createEvent() {
-                this.events.push(this.eventsCounter++);
             }
         },
         mounted() {
-            console.log('Barada lox')
+            this.eventId = this.$route.params['event_id'];
         }
     }
 </script>

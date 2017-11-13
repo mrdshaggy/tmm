@@ -11,6 +11,8 @@
                 <b-button variant="secondary" @click="hideModal">Cancel</b-button>
             </div>
         </b-modal>
+
+        <app-alert slot="alertMessage" ref="alert"></app-alert>
     </div>
 </template>
 
@@ -33,17 +35,17 @@
         },
         methods: {
             ok() {
-                this.$firebaseRefs.events.child(this.id).remove();
-                this.removeEvent();
+                this.$firebaseRefs.events.child(this.$parent.$route.params['event_id']).remove();
+                this.$refs.alert.showAlert('success', 'Event successfully deleted!');
+                this.hideModal();
+                setTimeout(() => {
+                    this.$router.push('/events');
+                },2000)
+
             },
             show(id) {
                 this.id = id;
                 this.$refs.modalDeleteEvent.show();
-            },
-            removeEvent() {
-                this.hideModal();
-                this.alertMsg = 'Event deleted!';
-                this.dismissCountDown = this.dismissSecs;
             },
             hideModal() {
                 this.$refs.modalDeleteEvent.hide();

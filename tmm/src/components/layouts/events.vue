@@ -25,7 +25,7 @@
                     </b-card-body>
                     <b-card-body>
                         <p class="card-text">
-                            This is a event description
+                            {{ event.description }}
                         </p>
                     </b-card-body>
                     <small class="text-muted">Last updated 3 mins ago</small>
@@ -62,6 +62,7 @@
             }
         },
         methods: {
+
         },
         computed: {
             filteredItems() {
@@ -77,16 +78,7 @@
             this.getEventsCounter;
         },
         updated() {
-            this.getEventsCounter;
-//
-//            for (const key of Object.keys(this.events)) {
-//                console.log(key, this.events[key]['name']);
-//                this.eventsNames.push(this.events[key]['name']);
-//            }
-//
-//            this.localEvents = this.events;
-//
-//            console.log(this.eventsNames);
+//            this.getEventsCounter;
         }
     }
 </script>
