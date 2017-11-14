@@ -63,6 +63,8 @@
         data() {
             return {
                 newEvent: {
+                    author: '',
+                    time: '',
                     name: '',
                     image: '',
                     startDate: '',

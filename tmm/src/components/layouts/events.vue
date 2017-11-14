@@ -8,29 +8,30 @@
             </div>
 
             <h4>Current events</h4>
-            <b-card-group columns>
-                <b-card v-for="event in events"
-                        img-src="https://placekitten.com/500/350"
-                        img-fluid
-                        :img-alt="event.name"
-                        img-top
-                        class="card-event">
-                    <b-card-body>
-                        <router-link :to="{ name: 'event', params: { event_id: event['.key'] }}">
-                            <h3>{{ event.name }}</h3>
-                        </router-link>
-                        From: {{ event.startDate }}
-                        <br>
-                        To: {{ event.endDate }}
-                    </b-card-body>
-                    <b-card-body>
-                        <p class="card-text">
+
+            <mu-row gutter>
+                <mu-col width="50" tablet="30" desktop="25" v-for="event in events">
+                    <mu-card>
+                        <mu-card-header title="By Event Author" subTitle="Last updated 3 mins ago">
+                            <mu-avatar src="/images/uicon.jpg" slot="avatar"/>
+                        </mu-card-header>
+                        <mu-card-media :title="event.name" :subTitle="event.startDate + ' - ' + event.endDate">
+                            <img src="https://placekitten.com/500/350" />
+                        </mu-card-media>
+                        <mu-card-text>
                             {{ event.description }}
-                        </p>
-                    </b-card-body>
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </b-card>
-            </b-card-group>
+                        </mu-card-text>
+                        <mu-card-actions>
+                            <router-link :to="{ name: 'event', params: { event_id: event['.key'] }}">
+                                <mu-flat-button label="Check it!" primary/>
+                            </router-link>
+
+                            <!--<mu-flat-button label="Action 2"/>-->
+                        </mu-card-actions>
+                    </mu-card>
+                </mu-col>
+            </mu-row>
+
         </div>
 
         <div class="events-group">
@@ -93,7 +94,7 @@
     }
 
     .events-group {
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid #eee;
         margin-bottom: 60px;
         padding-bottom: 20px;
     }

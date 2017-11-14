@@ -1,63 +1,56 @@
 <template>
     <div class="header">
-        <b-navbar toggleable="md" type="dark" variant="primary">
-            <b-nav-toggle target="nav_collapse"></b-nav-toggle>
-            <router-link to="/">
-                <b-navbar-brand>
-                    <img src="../../assets/logo-tmm.svg" alt="" class="logo">
-                    <slot name="title" class="title"></slot>
-                </b-navbar-brand>
+        <mu-appbar>
+            <router-link to="/" slot="left" class="header__logo">
+                <img src="../../assets/logo-tmm.svg" alt="" class="logo">
+                <slot name="title"></slot>
             </router-link>
 
-            <b-collapse is-nav id="nav_collapse">
-                <b-nav is-nav-bar class="ml-auto">
-                    <!--if logged-->
-                    <template v-if="logged">
-                        <b-nav is-nav-bar>
-                            <li class="nav-item">
-                                <router-link to="/" class="nav-link" exact-active-class="active">Home</router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/events" class="nav-link" exact-active-class="active">Events</router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/friends" class="nav-link" exact-active-class="active">Friends</router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/currencies" class="nav-link" exact-active-class="active">Currencies</router-link>
-                            </li>
-                        </b-nav>
-
-                        <router-link to="create-event" class="btn btn-success">Create Event</router-link>
-
-                        <b-nav-item-dropdown class="user" right>
-                            <template slot="button-content">
-                                <img :src="this.$parent.usr.photo" alt="">
-                            </template>
-                            <b-dropdown-item>Hello, {{ this.$parent.usr.name }}!</b-dropdown-item>
-                            <b-dropdown-divider></b-dropdown-divider>
-                            <router-link to="/profile" class="dropdown-item">Profile</router-link>
-                            <b-dropdown-item href="#" @click.prevent="signOut">Signout</b-dropdown-item>
-                        </b-nav-item-dropdown>
-                    </template>
-
-                    <template v-else>
-                        <b-nav is-nav-bar>
-                            <li class="nav-item">
-                                <router-link to="/" class="nav-link">Home</router-link>
-                            </li>
-                        </b-nav>
-
-                        <router-link to="/login">
-                            <b-button variant="success">Log In</b-button>
+            <template v-if="logged">
+                <ul class="header__nav" slot="right">
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/" exact-active-class="active">Home</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/events" exact-active-class="active">Events</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/friends" exact-active-class="active">Friends</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/currencies" exact-active-class="active">Currencies
                         </router-link>
-                    </template>
+                    </li>
+                </ul>
 
+                <router-link to="/create-event" slot="right">
+                    <mu-raised-button label="Create Event" secondary/>
+                </router-link>
 
-                </b-nav>
+                <mu-avatar slot="right" :src="this.$parent.usr.photo" class="logged-user"/>
 
-            </b-collapse>
-        </b-navbar>
+                <mu-icon-menu slot="right" icon="more_vert">
+                    <mu-menu-item :title="'Hello, ' + this.$parent.usr.name"/>
+                    <mu-divider/>
+                    <router-link to="/profile" class="r-link">
+                        <mu-menu-item title="Profile"/>
+                    </router-link>
+                    <mu-menu-item title="Sign out" @click.prevent="signOut"/>
+                </mu-icon-menu>
+            </template>
+
+            <template v-else>
+                <ul class="header__nav" slot="right">
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/" exact-active-class="active">Home</router-link>
+                    </li>
+                </ul>
+
+                <router-link to="/login" slot="right">
+                    <mu-raised-button label="Log In" secondary/>
+                </router-link>
+            </template>
+        </mu-appbar>
     </div>
 </template>
 
@@ -72,43 +65,37 @@
         methods: {
             signOut() {
                 firebase.auth().signOut().then(() => {
-                    console.log('out successfull');
+//                    console.log('out successfull');
                     location.href = '/';
                 }, function (error) {
-                    console.log('out error');
+//                    console.log('out error');
                 });
             },
 
         },
-        watch: {
-
-        }
+        watch: {}
     }
 </script>
 
 <style lang="scss" scoped>
-    .user img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .title {
-
-    }
 
     button {
         cursor: pointer;
     }
 
-    .user {
+    .logged-user {
         margin-left: 30px;
-        margin-right: 0 !important;
     }
 
-    .user img {
-        background-color: #fff;
-        border-radius: 100%;
-        box-sizing: border-box;
+    .header__logo {
+        font-size: 18px;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .header__nav {
+        margin: 0;
+        padding: 0;
     }
 
     .logo {
@@ -125,20 +112,19 @@
         z-index: 100;
     }
 
-    .navbar {
-        height: 60px;
-    }
-
     .nav-item {
         margin-right: 30px;
-        display: flex;
+        /*display: flex;*/
         align-items: center;
+        display: inline-block;
     }
 
     .nav-link {
         color: #fff !important;
         position: relative;
         padding: 0 !important;
+        font-size: 14px;
+        line-height: 21px;
     }
 
     .nav-link:after {

@@ -5,7 +5,7 @@
         </app-header>
 
         <div class="app-wrapper">
-            <div class="container-fluid">
+
                 <router-view>
                     <app-login></app-login>
 
@@ -16,7 +16,7 @@
                     <app-events-list></app-events-list>
 
                 </router-view>
-            </div>
+
         </div>
 
         <app-footer></app-footer>
@@ -38,7 +38,7 @@
         name: 'app',
         data() {
             return {
-                title: 'Team Money Manager',
+                title: 'Events Manager',
                 newEvent: {
                     name: '',
                     date: '',
@@ -88,8 +88,9 @@
 </script>
 
 <style lang="scss">
-    @import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
+    /*@import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css';*/
     @import '../node_modules/bootstrap/dist/css/bootstrap.css';
+    @import '../node_modules/muse-ui/dist/muse-ui.css';
 
     #app {
 
@@ -101,7 +102,11 @@
         margin: 30px 0;
     }
     .app-wrapper {
-        padding-top: 100px;
+        padding: 100px 15px 0;
         min-height: calc(100vh - 40px);
+    }
+    .r-link {
+        text-decoration: none!important;
+        display: block;
     }
 </style>

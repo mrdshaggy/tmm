@@ -5,6 +5,10 @@ import App from './App.vue';
 import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue);
 
+//muse-ui
+import MuseUI from 'muse-ui';
+Vue.use(MuseUI);
+
 //firebase
 import './firebase';
 import VueFire from 'vuefire';
@@ -44,10 +48,7 @@ var routes = [
     { path: '/friends', component: Friends },
     { path: '/profile', component: Profile },
     { path: '/create-event', component: CreateEvent },
-    { path: '/events/event/:event_id',
-        name: 'event',
-        component: Event
-    }
+    { path: '/events/event/:event_id', name: 'event', component: Event }
 ];
 
 var router = new VueRouter({
