@@ -4,24 +4,27 @@
             <h1>Profile</h1>
         </div>
 
-        <img :src="this.$parent.usr.photo" alt="" width="300">
+        <form @submit.prevent>
+            <img :src="this.$parent.usr.photo" alt="" width="300">
+            <br>
 
-        <b-form>
-            <b-form-group label="Name:">
-                <b-form-input type="text" v-model="this.$parent.usr.name" disabled></b-form-input>
-            </b-form-group>
+            <mu-text-field label="Name:" type="text" v-model="this.$parent.usr.name" disabled />
+            <br>
 
-            <b-form-group label="Email:" description="Users can see your email for communication.">
-                <b-form-input type="email" v-model="this.$parent.usr.email" disabled></b-form-input>
-            </b-form-group>
+            <mu-text-field label="Email:" type="text" v-model="this.$parent.usr.email" disabled />
+            <br>
+            <span>Users can see your email for communication.</span>
+            <br>
 
-            <b-form-group label="Phone:" description="Users can see your phone number for communication.">
-                <b-form-input type="text" v-model="this.$parent.usr.phone" disabled></b-form-input>
-            </b-form-group>
+            <mu-text-field label="Phone:" type="number" v-model="this.$parent.usr.phone" disabled />
+            <br>
+            <span>Users can see your phone for communication.</span>
+            <br>
+            <br>
 
-            <b-button type="submit" variant="success">Edit</b-button>
-            <!--<b-button type="reset" variant="secondary">Reset</b-button>-->
-        </b-form>
+            <mu-raised-button label="Edit"/>
+            <mu-raised-button label="Save"primary/>
+        </form>
     </div>
 </template>
 

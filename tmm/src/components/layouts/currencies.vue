@@ -2,29 +2,12 @@
     <div>
         <h3>Cureencies converter</h3>
 
-        <b-form @submit.prevent="onSubmit">
-            <b-row>
-                <b-col>
-                    <b-form-group label="From:" label-for="cur1">
-                        <b-form-input id="cur1"
-                                      type="number" v-model="cur.from" required
-                                      placeholder="Enter value"
-                        ></b-form-input>
-                    </b-form-group>
-                </b-col>
-                <b-col>
-                    <b-form-group label="To:" label-for="cur2">
-                        <b-form-input id="cur2"
-                                      type="number" v-model="cur.to" required
-                                      placeholder="Enter value"
-                        ></b-form-input>
-                    </b-form-group>
-                </b-col>
-                <b-col></b-col>
-            </b-row>
-            <b-button type="submit" variant="primary">Submit</b-button>
-            <b-button type="reset" variant="secondary">Reset</b-button>
-        </b-form>
+        <form @submit.prevent="onSubmit">
+            <mu-text-field label="From:" hintText="Enter Currency" type="number" v-model="cur.from"/>
+            <mu-text-field label="To:" hintText="Enter Currency" type="number" v-model="cur.to"/>
+            <mu-flat-button label="Convert" primary/>
+            <mu-flat-button label="Reset" secondary/>
+        </form>
 
         <p>
             <br><br><br>
@@ -68,25 +51,6 @@
         },
         mounted() {
             let cData = 'https://www.mycurrency.net/service/rates';
-
-            fetch(cData, {mode: 'no-cors'})
-                .then(
-                    function(response) {
-                        if (response.status !== 200) {
-                            console.log('Looks like there was a problem. Status Code: ' +
-                                response.status);
-                            return;
-                        }
-
-                        // Examine the text in the response
-                        response.json().then(function(data) {
-                            console.log(data);
-                        });
-                    }
-                )
-                .catch(function(err) {
-                    console.log('Fetch Error :-S', err);
-                });
 
 
 //            fx.base = "USD";
