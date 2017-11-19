@@ -13,8 +13,12 @@
         <div v-html="event.map"></div>
         </p>
 
-        <b-btn v-b-modal.modalDeleteEvent variant="danger">Remove Event</b-btn>
-
+        <mu-raised-button
+                label="Remove Event"
+                labelPosition="before"
+                icon="backspace"
+                secondary
+                @click="removeEvent" />
 
         <app-delete-event ref="deleteEvent"></app-delete-event>
     </div>
@@ -30,6 +34,7 @@
             return {
                 pageTitle: 'Event',
                 eventId: '',
+                removeEventModal: false,
             }
         },
         firebase() {
@@ -46,7 +51,7 @@
         },
         methods: {
             removeEvent(id) {
-                this.$refs.deleteEvent.show(id);
+                this.removeEventModal = true;
             }
         },
         mounted() {

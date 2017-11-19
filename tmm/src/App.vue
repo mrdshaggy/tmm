@@ -46,6 +46,7 @@
                 logged: false,
                 usr: {
                     name: '',
+                    nickname: '',
                     email: '',
                     photo: '',
                     phone: '',
@@ -88,8 +89,6 @@
 </script>
 
 <style lang="scss">
-    /*@import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css';*/
-    @import '../node_modules/bootstrap/dist/css/bootstrap.css';
     @import '../node_modules/muse-ui/dist/muse-ui.css';
 
     #app {

@@ -1,10 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
 
-//bootstrap-vue
-import BootstrapVue from 'bootstrap-vue';
-Vue.use(BootstrapVue);
-
 //muse-ui
 import MuseUI from 'muse-ui';
 Vue.use(MuseUI);
@@ -14,14 +10,11 @@ import './firebase';
 import VueFire from 'vuefire';
 Vue.use(VueFire);
 
-//bootstrap-vue alerts global
+//alerts global
 import Alert from './components/alerts/alert.vue';
+import Toast from './components/alerts/toast.vue';
 Vue.component('app-alert', Alert);
-
-//datetime picker
-import { Datetime } from 'vue-datetime';
-Vue.use(Datetime);
-Vue.component('app-datetime', Datetime);
+Vue.component('app-notification', Toast);
 
 //moneyjs
 import Money from 'money';

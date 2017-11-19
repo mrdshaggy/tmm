@@ -1,8 +1,8 @@
 <template>
     <div>
-        <b-card>
+
             Here will be new payment
-        </b-card>
+
     </div>
 </template>
 

@@ -12,14 +12,12 @@
     "firebase": "^4.4.0",
     "muse-ui": "^2.1.0",
     "vue": "^2.3.3",
-    "vue-datetime": "^0.4.3",
     "vuefire": "^1.4.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-preset-env": "^1.5.1",
-    "bootstrap-vue": "^1.0.0-beta.9",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",

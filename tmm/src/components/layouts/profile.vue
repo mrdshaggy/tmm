@@ -5,18 +5,21 @@
         </div>
 
         <form @submit.prevent>
-            <img :src="this.$parent.usr.photo" alt="" width="300">
+            <img :src="$parent.usr.photo" alt="" width="300">
             <br>
 
-            <mu-text-field label="Name:" type="text" v-model="this.$parent.usr.name" disabled />
+            <mu-text-field label="Nickname:" type="text" v-model="$parent.usr.nickname" disabled />
             <br>
 
-            <mu-text-field label="Email:" type="text" v-model="this.$parent.usr.email" disabled />
+            <mu-text-field label="Name:" type="text" v-model="$parent.usr.name" disabled />
+            <br>
+
+            <mu-text-field label="Email:" type="text" v-model="$parent.usr.email" disabled />
             <br>
             <span>Users can see your email for communication.</span>
             <br>
 
-            <mu-text-field label="Phone:" type="number" v-model="this.$parent.usr.phone" disabled />
+            <mu-text-field label="Phone:" type="number" v-model="$parent.usr.phone" disabled />
             <br>
             <span>Users can see your phone for communication.</span>
             <br>
