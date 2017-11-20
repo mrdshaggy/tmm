@@ -12,11 +12,11 @@
             <mu-row gutter>
                 <mu-col width="50" tablet="30" desktop="25" v-for="event in events">
                     <mu-card>
-                        <mu-card-header title="By Event Author" subTitle="Last updated 3 mins ago">
-                            <mu-avatar src="/images/uicon.jpg" slot="avatar"/>
+                        <mu-card-header :title="'By ' + event.author.name" subTitle="Last updated 3 mins ago">
+                            <mu-avatar :src="event.author.photo" slot="avatar"/>
                         </mu-card-header>
                         <mu-card-media :title="event.name" :subTitle="event.startDate + ' - ' + event.endDate">
-                            <img src="https://placekitten.com/500/350" />
+                            <img :src="event.imageUrl" />
                         </mu-card-media>
                         <mu-card-text>
                             {{ event.description }}
@@ -46,6 +46,7 @@
 
 <script>
     import {db} from '../../firebase';
+    import {fs} from '../../firebase';
 
     export default {
         data() {

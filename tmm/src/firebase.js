@@ -8,5 +8,5 @@ const firebaseApp = Firebase.initializeApp({
     storageBucket: "temm-dd89d.appspot.com",
     messagingSenderId: "733607351069"
 });
-
+export const fs = firebaseApp.storage();
 export const db = firebaseApp.database();
