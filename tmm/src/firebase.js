@@ -6,7 +6,7 @@ const firebaseApp = Firebase.initializeApp({
     databaseURL: "https://temm-dd89d.firebaseio.com",
     projectId: "temm-dd89d",
     storageBucket: "temm-dd89d.appspot.com",
-    messagingSenderId: "733607351069"
+    messagingSenderId: "733607351069",
 });
 export const fs = firebaseApp.storage();
 export const db = firebaseApp.database();

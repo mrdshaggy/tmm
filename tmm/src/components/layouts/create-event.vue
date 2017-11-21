@@ -66,6 +66,8 @@
                         <mu-raised-button label="Next" class="demo-step-button" @click="handleNext" primary/>
                     </mu-step-content>
                 </mu-step>
+
+                <!--STEP 2-->
                 <mu-step>
                     <mu-step-label>Add Friends</mu-step-label>
                     <mu-step-content>
@@ -76,6 +78,8 @@
                         <mu-flat-button label="Previous" class="demo-step-button" @click="handlePrev"/>
                     </mu-step-content>
                 </mu-step>
+
+                <!--STEP 3-->
                 <mu-step>
                     <mu-step-label>To do list</mu-step-label>
                     <mu-step-content>
@@ -131,7 +135,6 @@
                 multiLineInput: '',
                 multiLineInputErrorText: '',
                 activeStep: 0,
-
             }
         },
         firebase: {
@@ -154,10 +157,27 @@
             onSubmit(evt) {
                 this.newEvent.author.name = this.$parent.usr.name;
                 this.newEvent.author.photo = this.$parent.usr.photo;
-                console.log(this.newEvent.author);
-                this.$firebaseRefs.events.push(this.newEvent);
-                this.$refs.successToast.showToast('success', 'Event created!');
 
+                let imageUrl, key;
+                this.$firebaseRefs.events.push(this.newEvent)
+                    .then((data) => {
+                        key = data.key;
+                        return key;
+                    })
+                    .then(key => {
+                        const filename = this.newEvent.image.name;
+                        const ext = filename.slice(filename.lastIndexOf('.'));
+                        return fs.ref('events/' + key + '.' + ext).put(this.newEvent.image);
+                    })
+                    .then(fileData => {
+                        imageUrl = fileData.metadata.downloadURLs[0];
+                        return this.$firebaseRefs.events.child(key).update({imageUrl: imageUrl})
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    });
+
+                this.$refs.successToast.showToast('success', 'Event created!');
                 setTimeout(() => {
                     this.$router.push('/events');
                 },2000)
@@ -176,6 +196,7 @@
                 const fileReader = new FileReader();
                 fileReader.addEventListener('load', () => {
                     this.newEvent.imageUrl = fileReader.result;
+
                 });
                 fileReader.readAsDataURL(files[0]);
                 this.newEvent.image = files[0];

@@ -102,6 +102,7 @@
         width: 40px;
         height: 40px;
         margin-right: 10px;
+        vertical-align: middle;
     }
 
     .header {
