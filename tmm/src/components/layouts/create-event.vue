@@ -175,10 +175,11 @@
                     .then(fileData => {
                         imageUrl = fileData.metadata.downloadURLs[0];
                         this.$firebaseRefs.events.child(key).update({imageUrl: imageUrl});
+
                         this.$refs.progress.showProgress('Event created!');
                         setTimeout(() => {
                             this.$router.push({ name: 'event', params: { event_id: key }});
-                        },2000)
+                        },2000);
                     })
                     .catch((error) => {
                         console.log(error)
@@ -198,7 +199,6 @@
                 const fileReader = new FileReader();
                 fileReader.addEventListener('load', () => {
                     this.newEvent.imageUrl = fileReader.result;
-
                 });
                 fileReader.readAsDataURL(files[0]);
                 this.newEvent.image = files[0];

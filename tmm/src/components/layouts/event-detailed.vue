@@ -8,7 +8,7 @@
             <br>
             {{event.description}}
             <br>
-            {{event.image}}
+            <img :src="event.imageUrl" alt="">
             <br>
         <div v-html="event.map"></div>
         </p>
@@ -73,6 +73,9 @@
         border-bottom: 1px solid gray;
         margin-bottom: 60px;
         padding-bottom: 20px;
+    }
+    img {
+        max-width: 500px;
     }
 
 </style>

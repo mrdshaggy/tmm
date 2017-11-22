@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c54ac7-9ccc-4b15-815f-7e4cf54cdcba" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmm/src/components/addons/progress.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/components/addons/en-datepicker.vue" afterPath="$PROJECT_DIR$/tmm/src/components/addons/en-datepicker.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue" afterPath="$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/main.js" afterPath="$PROJECT_DIR$/tmm/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/components/layouts/event-detailed.vue" afterPath="$PROJECT_DIR$/tmm/src/components/layouts/event-detailed.vue" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create-event.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create-event.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2664">
-              <caret line="166" column="35" lean-forward="true" selection-start-line="166" selection-start-column="35" selection-end-line="166" selection-end-column="35" />
+            <state relative-caret-position="261">
+              <caret line="177" column="0" lean-forward="false" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#mu-step-content#0;n#mu-step#0;n#mu-stepper#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#mu-step-content#0;n#mu-step#0;n#mu-stepper#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -53,6 +50,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
               <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event-detailed.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/event-detailed.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="516">
+              <caret line="65" column="5" lean-forward="true" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -120,7 +127,6 @@
         <option value="$PROJECT_DIR$/tmm/src/components/layouts/currencies.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/layouts/profile.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/new-payment.vue" />
-        <option value="$PROJECT_DIR$/tmm/src/components/layouts/event-detailed.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/alerts/toast.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/delete-event.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/alerts/alert.vue" />
@@ -133,6 +139,7 @@
         <option value="$PROJECT_DIR$/tmm/src/components/addons/en-datepicker.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/addons/progress.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue" />
+        <option value="$PROJECT_DIR$/tmm/src/components/layouts/event-detailed.vue" />
       </list>
     </option>
   </component>
@@ -297,12 +304,12 @@
       <updated>1508787318469</updated>
       <workItem from="1508787321504" duration="30898000" />
       <workItem from="1509818916055" duration="55952000" />
-      <workItem from="1511080891654" duration="16668000" />
+      <workItem from="1511080891654" duration="17005000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103518000" />
+    <option name="totallyTimeSpent" value="103855000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="29" y="30" width="1619" height="959" extended-state="0" />
@@ -518,14 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/event-detailed.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmm/src/components/alerts/alert.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -625,8 +624,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2664">
-          <caret line="166" column="35" lean-forward="true" selection-start-line="166" selection-start-column="35" selection-end-line="166" selection-end-column="35" />
+        <state relative-caret-position="261">
+          <caret line="177" column="0" lean-forward="false" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#input#0;n#mu-step-content#0;n#mu-step#0;n#mu-stepper#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#mu-step-content#0;n#mu-step#0;n#mu-stepper#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -634,6 +633,14 @@
             <element signature="n#mu-step#2;n#mu-stepper#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="e#4956#4990#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/event-detailed.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="65" column="5" lean-forward="true" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
