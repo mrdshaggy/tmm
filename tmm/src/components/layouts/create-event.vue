@@ -171,16 +171,18 @@
                     })
                     .then(fileData => {
                         imageUrl = fileData.metadata.downloadURLs[0];
-                        return this.$firebaseRefs.events.child(key).update({imageUrl: imageUrl})
+                        this.$firebaseRefs.events.child(key).update({imageUrl: imageUrl});
+                        this.$refs.successToast.showToast('success', 'Event created!');
+                        this.$router.push('/events');
                     })
                     .catch((error) => {
                         console.log(error)
                     });
 
-                this.$refs.successToast.showToast('success', 'Event created!');
-                setTimeout(() => {
-                    this.$router.push('/events');
-                },2000)
+//                this.$refs.successToast.showToast('success', 'Event created!');
+//                setTimeout(() => {
+//                    this.$router.push('/events');
+//                },2000)
             },
             pickImage () {
               this.$refs.imageInput.click();
@@ -196,7 +198,6 @@
                 const fileReader = new FileReader();
                 fileReader.addEventListener('load', () => {
                     this.newEvent.imageUrl = fileReader.result;
-
                 });
                 fileReader.readAsDataURL(files[0]);
                 this.newEvent.image = files[0];
