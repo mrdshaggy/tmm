@@ -104,6 +104,7 @@
         </form>
 
         <app-notification ref="successToast"></app-notification>
+        <app-progress ref="progress"></app-progress>
     </div>
 </template>
 
@@ -155,6 +156,7 @@
                 this.multiLineInputErrorText = isOverflow ? 'Wow wow, mate! Too much!' : ''
             },
             onSubmit(evt) {
+                this.$refs.progress.showProgress('Creating event!');
                 this.newEvent.author.name = this.$parent.usr.name;
                 this.newEvent.author.photo = this.$parent.usr.photo;
 
@@ -165,22 +167,22 @@
                         return key;
                     })
                     .then(key => {
+                        this.$refs.progress.showProgress('Just a moment!');
                         const filename = this.newEvent.image.name;
                         const ext = filename.slice(filename.lastIndexOf('.'));
                         return fs.ref('events/' + key + '.' + ext).put(this.newEvent.image);
                     })
                     .then(fileData => {
                         imageUrl = fileData.metadata.downloadURLs[0];
-                        return this.$firebaseRefs.events.child(key).update({imageUrl: imageUrl})
+                        this.$firebaseRefs.events.child(key).update({imageUrl: imageUrl});
+                        this.$refs.progress.showProgress('Event created!');
+                        setTimeout(() => {
+                            this.$router.push({ name: 'event', params: { event_id: key }});
+                        },2000)
                     })
                     .catch((error) => {
                         console.log(error)
                     });
-
-                this.$refs.successToast.showToast('success', 'Event created!');
-                setTimeout(() => {
-                    this.$router.push('/events');
-                },2000)
             },
             pickImage () {
               this.$refs.imageInput.click();

@@ -16,6 +16,10 @@ import Toast from './components/alerts/toast.vue';
 Vue.component('app-alert', Alert);
 Vue.component('app-notification', Toast);
 
+//Progress preloader global
+import Progress from './components/addons/progress.vue';
+Vue.component('app-progress', Progress);
+
 //moneyjs
 import Money from 'money';
 Vue.use(Money);

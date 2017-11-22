@@ -1,4 +1,3 @@
-
 <script>
     const dayAbbreviation = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     const dayList = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -6,7 +5,6 @@
         'Oct', 'Nov', 'Dec'];
     const monthLongList = ['January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'];
-
     const enDateFormat = {
         formatDisplay (date) {
             return `${dayList[date.getDay()]}, ${monthList[date.getMonth()]} ${date.getDate()}`
@@ -27,6 +25,5 @@
             return beforeArray.concat(afterArray)
         }
     };
-
     export default enDateFormat;
 </script>
