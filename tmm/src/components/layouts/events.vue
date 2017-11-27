@@ -1,25 +1,31 @@
 <template>
     <div>
         <div class="events-group">
-            <h5 class="text-center mb-3">Hey, {{ this.$parent.usr.name }}, you have {{ eventsCounter }} events!</h5>
+            <h3>Hey, {{ this.$parent.usr.name }}, you have {{ eventsCounter }} events!</h3>
             <div class="filter mb-4">
                 <span>Filter by name:</span>
                 <input type="text" v-model="filter">
             </div>
 
-            <h4>Current events</h4>
+            <h4>Your events</h4>
 
-            <mu-row gutter>
-                <mu-col width="50" tablet="30" desktop="25" v-for="event in events">
+            <mu-row class="f-start">
+                <mu-col width="50" tablet="30" desktop="25"
+                        v-for="event in events"
+                        v-if="event.author.email === $parent.usr.email">
                     <mu-card>
-                        <mu-card-header :title="'By ' + event.author.name" subTitle="Last updated 3 mins ago">
-                            <mu-avatar :src="event.author.photo" slot="avatar"/>
+                        <mu-card-header :title="'By ' + event.author.name"
+                                        subTitle="Last updated 3 mins ago">
+                            <mu-avatar :src="event.author.photo"
+                                       slot="avatar"/>
                         </mu-card-header>
-                        <mu-card-media :title="event.name" :subTitle="event.startDate + ' - ' + event.endDate">
-                            <img :src="event.imageUrl" />
+                        <mu-card-media class="card-img"
+                                       :title="event.name"
+                                       :subTitle="event.startDate + ' - ' + event.endDate"
+                                       :style="{ backgroundImage: 'url(' + event.imageUrl + ')' }">
                         </mu-card-media>
                         <mu-card-text>
-                            {{ event.description }}
+                            {{ event.info }}
                         </mu-card-text>
                         <mu-card-actions>
                             <router-link :to="{ name: 'event', params: { event_id: event['.key'] }}">
@@ -35,11 +41,12 @@
         </div>
 
         <div class="events-group">
-            <h4>Future events</h4>
+            <h4>Events with you</h4>
         </div>
 
         <div class="events-group">
-            <h4>Previous events</h4>
+            <h4>Friends events</h4>
+
         </div>
     </div>
 </template>
@@ -54,8 +61,6 @@
                 filter: '',
                 pageTitle: 'Events',
                 eventsCounter: 0,
-                localEvents: [],
-                eventsNames: [],
             }
         },
         firebase: {
@@ -68,7 +73,7 @@
         },
         computed: {
             filteredItems() {
-                return this.eventsNames.filter(item => {
+                return this.events.name.filter(item => {
                     return item.type.toLowerCase().indexOf(this.search.toLowerCase()) > -1
                 })
             },
@@ -80,7 +85,7 @@
             this.getEventsCounter;
         },
         updated() {
-//            this.getEventsCounter;
+            this.getEventsCounter;
         }
     }
 </script>
@@ -98,6 +103,29 @@
         border-bottom: 1px solid #eee;
         margin-bottom: 60px;
         padding-bottom: 20px;
+    }
+
+    .card-img {
+        height: 200px;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .f-start {
+        justify-content: flex-start;
+    }
+
+    .mu-card {
+        margin: 0 10px;
+    }
+
+    .mu-card-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-bottom: 0;
     }
 
 </style>
