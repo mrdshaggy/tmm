@@ -42,6 +42,35 @@
 
         <div class="events-group">
             <h4>Events with you</h4>
+
+            <mu-row class="f-start">
+                <template v-for="event in events">
+                    <mu-col width="50" tablet="30" desktop="25"
+                            v-for="e in event.invited"
+                            v-if="e === $parent.usr.email">
+                        <mu-card>
+                            <mu-card-header :title="'By ' + event.author.name"
+                                            subTitle="Last updated 3 mins ago">
+                                <mu-avatar :src="event.author.photo"
+                                           slot="avatar"/>
+                            </mu-card-header>
+                            <mu-card-media class="card-img"
+                                           :title="event.name"
+                                           :subTitle="event.startDate + ' - ' + event.endDate"
+                                           :style="{ backgroundImage: 'url(' + event.imageUrl + ')' }">
+                            </mu-card-media>
+                            <mu-card-text>
+                                {{ event.info }}
+                            </mu-card-text>
+                            <mu-card-actions>
+                                <router-link :to="{ name: 'event', params: { event_id: event['.key'] }}">
+                                    <mu-flat-button label="Check it!" primary/>
+                                </router-link>
+                            </mu-card-actions>
+                        </mu-card>
+                    </mu-col>
+                </template>
+            </mu-row>
         </div>
 
         <div class="events-group">

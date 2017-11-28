@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="onSubmit" ref="createEvent">
+        <form @submit.prevent ref="createEvent">
 
 
             <mu-stepper :activeStep="activeStep" orientation="vertical">
@@ -87,11 +87,13 @@
                         <p>Invite your friends to this event</p>
                         <mu-auto-complete label="Friend's email"
                                           :maxSearchResults="5"
-                                          labelFloat :dataSource="users.registered"
+                                          labelFloat :dataSource="users"
                                           ref="inviteInput"
                                           v-model="inviteInputVal"
+                                          @keydown.enter="inviteUser"
                                           filter="caseSensitiveFilter"/>
                         <mu-raised-button label="ADD" @click="inviteUser" primary/>
+                        Or press Enter
                         <br>
 
                         <mu-chip class="chip"
@@ -138,7 +140,7 @@
 
 
             <br><br><br>
-            <mu-raised-button type="submit" label="Create" primary />
+            <mu-raised-button type="button" @click="onSubmit" label="Create" primary />
             <br><br><br>
 
         </form>
@@ -179,16 +181,14 @@
                 multiLineInput: '',
                 multiLineInputErrorText: '',
                 activeStep: 0,
-                inviteInputVal: ''
+                inviteInputVal: '',
+                users: ['v.bodnar@qubstudio.com', 'aa@gmail.com', 'bb@gmail.com', 'cc@gmail.com'],
             }
         },
         firebase: {
             events: {
                 source: db.ref('events')
             },
-            users: {
-                source: db.ref('users')
-            }
         },
         computed: {
             finished () {
@@ -207,6 +207,7 @@
                 this.newEvent.author.name = this.$parent.usr.name;
                 this.newEvent.author.email = this.$parent.usr.email;
                 this.newEvent.author.photo = this.$parent.usr.photo;
+                this.newEvent.invited.toString();
 
                 let imageUrl, key;
                 this.$firebaseRefs.events.push(this.newEvent)

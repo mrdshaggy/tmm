@@ -50,12 +50,16 @@
                     email: '',
                     photo: '',
                     phone: '',
+                    friends: '',
                 }
             }
         },
         firebase: {
             events: {
                 source: db.ref('events')
+            },
+            users: {
+                source: db.ref('users')
             }
         },
         methods: {
@@ -67,7 +71,8 @@
                         this.usr.email = user.email;
                         this.usr.photo = user.photoURL;
                         this.usr.phone = user.phoneNumber;
-//                        console.log(user);
+
+//                        this.$firebaseRefs.users.push(this.usr)
                     } else {
                         this.logged = false;
                     }
