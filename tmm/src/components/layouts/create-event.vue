@@ -24,6 +24,13 @@
                         <mu-row gutter>
                             <mu-col width="100" tablet="50" desktop="50">
                                 <mu-text-field
+
+                                        v-validate
+                                        data-vv-rules="required|strict"
+                                        name="name"
+                                        data-vv-name="name"
+                                        :errorText="errors.first('email')"
+                                        ref="eName"
                                         label="Event Name:"
                                         type="text"
                                         v-model="newEvent.name"
@@ -32,6 +39,7 @@
                             </mu-col>
                             <mu-col width="100" tablet="50" desktop="50">
                                 <mu-text-field
+                                        ref="eInfo"
                                         label="Short info:"
                                         type="text"
                                         v-model="newEvent.info"
@@ -43,6 +51,7 @@
                             </mu-col>
                             <mu-col width="100" tablet="50" desktop="50">
                                 <mu-date-picker
+                                        ref="eStart"
                                         label="Start Date:" labelFloat fullWidth
                                         okLabel="Ok"
                                         cancelLabel="Cancel"
@@ -51,6 +60,7 @@
                             </mu-col>
                             <mu-col width="100" tablet="50" desktop="50">
                                 <mu-date-picker
+                                        ref="eFinish"
                                         label="End Date:" labelFloat fullWidth
                                         okLabel="Ok"
                                         cancelLabel="Cancel"
@@ -65,7 +75,7 @@
                                         @textOverflow="handleMultiLineOverflow"
                                         multiLine fullWidth
                                         :rows="5" :rowsMax="15"
-                                        :maxLength="5000"/>
+                                        :maxLength="50000"/>
                             </mu-col>
                             <mu-col width="100" tablet="100" desktop="100">
                                 <mu-text-field
@@ -76,7 +86,7 @@
                             </mu-col>
                         </mu-row>
                         <p>Great! It's time to invite friends! Press the Next button, mate!</p>
-                        <mu-raised-button label="Next" class="demo-step-button" @click="handleNext" primary/>
+                        <mu-raised-button label="Next" class="demo-step-button" @click="stepOneValidation" primary/>
                     </mu-step-content>
                 </mu-step>
 
@@ -113,7 +123,7 @@
 
                 <!--STEP 3-->
                 <mu-step>
-                    <mu-step-label>Options</mu-step-label>
+                    <mu-step-label><h1>Options</h1></mu-step-label>
                     <mu-step-content>
                         <p>on/off</p>
                         <ul>
@@ -217,12 +227,23 @@
                     })
                     .then(key => {
                         this.$refs.progress.showProgress('Just a moment!');
-                        const filename = this.newEvent.image.name;
-                        const ext = filename.slice(filename.lastIndexOf('.'));
-                        return fs.ref('events/' + key + '.' + ext).put(this.newEvent.image);
+                        if (this.newEvent.imageUrl == 0) {
+                            return;
+                        }
+                        else {
+                            const filename = this.newEvent.image.name;
+                            const ext = filename.slice(filename.lastIndexOf('.'));
+                            return fs.ref('events/' + key + '.' + ext).put(this.newEvent.image);
+                        }
                     })
                     .then(fileData => {
-                        imageUrl = fileData.metadata.downloadURLs[0];
+                        console.log(fileData)
+                        if (fileData) {
+                            imageUrl = fileData.metadata.downloadURLs[0];
+                        }
+                        else {
+                            imageUrl = 'https://firebasestorage.googleapis.com/v0/b/temm-dd89d.appspot.com/o/events%2Ftravel-dafault.jpg?alt=media&token=0cc1e9d1-aba9-415d-8b2f-ca5a7530b41f';
+                        }
                         this.$firebaseRefs.events.child(key).update({imageUrl: imageUrl});
 
                         this.$refs.progress.showProgress('Event created!');
@@ -231,7 +252,7 @@
                         },2000);
                     })
                     .catch((error) => {
-                        console.log(error)
+                        console.log(error);
                     });
             },
             pickImage () {
@@ -272,6 +293,26 @@
                 if (index >= 0) {
                     this.newEvent.invited.splice(index, 1);
                 }
+            },
+            stepOneValidation() {
+                let name, info, start, finish, i;
+                name = this.$refs.eName.value;
+                info = this.$refs.eInfo.value;
+                start = this.$refs.eStart.value;
+                finish = this.$refs.eFinish.value;
+                let arr = [name, info, start, finish];
+
+
+
+                    if (arr.some(v => v == 0)) {
+                        alert('Please enter required fields');
+                    }
+                    else {
+                        this.activeStep++
+                    }
+
+//                console.log(name, info, start, finish)
+//                this.activeStep++
             }
         }
     };

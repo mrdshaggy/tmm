@@ -38,7 +38,7 @@
         name: 'app',
         data() {
             return {
-                title: 'Events Manager',
+                title: 'TrippeR',
                 newEvent: {
                     name: '',
                     date: '',

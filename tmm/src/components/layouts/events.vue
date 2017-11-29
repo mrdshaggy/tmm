@@ -107,7 +107,7 @@
                 })
             },
             getEventsCounter() {
-                this.eventsCounter = this.events.length;
+//                this.eventsCounter = this.events.length;
             }
         },
         mounted() {

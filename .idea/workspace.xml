@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04c54ac7-9ccc-4b15-815f-7e4cf54cdcba" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmm/src/assets/travel-dafault.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/package-lock.json" afterPath="$PROJECT_DIR$/tmm/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/package.json" afterPath="$PROJECT_DIR$/tmm/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/App.vue" afterPath="$PROJECT_DIR$/tmm/src/App.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue" afterPath="$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/components/layouts/events.vue" afterPath="$PROJECT_DIR$/tmm/src/components/layouts/events.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmm/src/main.js" afterPath="$PROJECT_DIR$/tmm/src/main.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,21 +20,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/login.vue">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tmm/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="26" column="10" lean-forward="false" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+            <state relative-caret-position="210">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="28" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tmm/src/App.vue">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tmm/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+            <state relative-caret-position="234">
+              <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/login.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" column="10" lean-forward="false" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -39,18 +53,20 @@
       <file leaf-file-name="create-event.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="209" column="49" lean-forward="false" selection-start-line="209" selection-start-column="49" selection-end-line="209" selection-end-column="49" />
-              <folding />
+            <state relative-caret-position="131">
+              <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
+              <folding>
+                <element signature="e#8322#8356#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="events.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="events.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/events.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1133">
-              <caret line="67" column="46" lean-forward="false" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+            <state relative-caret-position="393">
+              <caret line="110" column="13" lean-forward="false" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -93,17 +109,17 @@
         <option value="$PROJECT_DIR$/tmm/src/components/alerts/toast.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/delete-event.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/alerts/alert.vue" />
-        <option value="$PROJECT_DIR$/tmm/package.json" />
         <option value="$PROJECT_DIR$/tmm/src/firebase.js" />
         <option value="$PROJECT_DIR$/tmm/src/components/modules/header.vue" />
-        <option value="$PROJECT_DIR$/tmm/src/main.js" />
         <option value="$PROJECT_DIR$/tmm/src/components/addons/en-datepicker.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/addons/progress.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/layouts/event-detailed.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/layouts/login.vue" />
-        <option value="$PROJECT_DIR$/tmm/src/App.vue" />
-        <option value="$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue" />
         <option value="$PROJECT_DIR$/tmm/src/components/layouts/events.vue" />
+        <option value="$PROJECT_DIR$/tmm/src/App.vue" />
+        <option value="$PROJECT_DIR$/tmm/package.json" />
+        <option value="$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue" />
+        <option value="$PROJECT_DIR$/tmm/src/main.js" />
       </list>
     </option>
   </component>
@@ -237,11 +253,11 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tmm/src/components/layouts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tmm/src/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tmm/src/components/layouts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -268,12 +284,12 @@
       <updated>1508787318469</updated>
       <workItem from="1508787321504" duration="30898000" />
       <workItem from="1509818916055" duration="55952000" />
-      <workItem from="1511080891654" duration="30260000" />
+      <workItem from="1511080891654" duration="35825000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117110000" />
+    <option name="totallyTimeSpent" value="122675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="29" y="30" width="1619" height="959" extended-state="0" />
@@ -313,12 +329,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#122#142#0" expanded="true" />
-            <element signature="e#209#259#0" expanded="true" />
-            <element signature="e#640#689#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -326,12 +337,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#122#142#0" expanded="true" />
-            <element signature="e#209#259#0" expanded="true" />
-            <element signature="e#640#689#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -370,7 +376,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
           <caret line="55" column="13" lean-forward="true" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#8322#8356#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -454,32 +462,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmm/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmm/src/components/addons/en-datepicker.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmm/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="54" column="16" lean-forward="true" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#122#142#0" expanded="true" />
-            <element signature="e#209#259#0" expanded="true" />
-            <element signature="e#640#689#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -555,22 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="26" column="10" lean-forward="false" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmm/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/currencies.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -579,18 +550,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue">
+    <entry file="file://$PROJECT_DIR$/tmm/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="209" column="49" lean-forward="false" selection-start-line="209" selection-start-column="49" selection-end-line="209" selection-end-column="49" />
+        <state relative-caret-position="206">
+          <caret line="40" column="31" lean-forward="false" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="10" lean-forward="false" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/events.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1133">
-          <caret line="67" column="46" lean-forward="false" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+        <state relative-caret-position="393">
+          <caret line="110" column="13" lean-forward="false" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmm/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmm/src/components/layouts/create-event.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
+          <folding>
+            <element signature="e#8322#8356#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmm/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="28" selection-end-column="21" />
           <folding />
         </state>
       </provider>

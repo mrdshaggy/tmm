@@ -24,6 +24,10 @@ Vue.component('app-progress', Progress);
 import Money from 'money';
 Vue.use(Money);
 
+//forms validation
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
+
 //vue router
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
