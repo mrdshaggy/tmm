@@ -6,67 +6,107 @@
             <mu-stepper :activeStep="activeStep" orientation="vertical">
                 <!--STEP 1-->
                 <mu-step>
+                    <mu-step-label><h1>Event card</h1></mu-step-label>
+                    <mu-step-content>
+                        <h3>Hi, mate! How r u doin? Let's create a new event! Your card will look like this one!</h3>
+
+                        <mu-row gutter>
+                            <mu-col width="100" tablet="40" desktop="30">
+                                <mu-card class="card">
+                                    <mu-card-header :title="this.$parent.usr.name"
+                                                    subTitle="Last updated 1 minute ago">
+                                        <mu-avatar :src="this.$parent.usr.photo"
+                                                   slot="avatar"/>
+                                    </mu-card-header>
+                                    <mu-card-media class="card-img"
+                                                   :title="newEvent.name"
+                                                   :subTitle="newEvent.startDate + ' - ' + newEvent.endDate"
+                                                   :style="{ backgroundImage: 'url(' + newEvent.imageUrl + ')' }">
+                                    </mu-card-media>
+                                    <mu-card-text>
+                                        {{newEvent.info}}
+                                    </mu-card-text>
+                                    <mu-card-actions>
+                                        <mu-raised-button :label="newEvent.btnText" secondary/>
+                                    </mu-card-actions>
+                                </mu-card>
+                            </mu-col>
+
+                            <mu-col width="100" tablet="60" desktop="70">
+                                <mu-raised-button label="Upload event image" @click="pickImage" primary/>
+                                <input
+                                        type="file"
+                                        style="display: none;"
+                                        ref="imageInput"
+                                        accept="image/*"
+                                        @change="onFileUpload"/>
+                                <br>
+
+                                <mu-text-field
+                                            ref="eName"
+                                            label="Event Name:"
+                                            type="text"
+                                            v-model="newEvent.name"
+                                            labelFloat
+                                            fullWidth />
+
+
+                                <mu-text-field
+                                            ref="eInfo"
+                                            label="Short info:"
+                                            type="text"
+                                            v-model="newEvent.info"
+                                            :errorText="inputErrorText"
+                                            @textOverflow="handleInputOverflow"
+                                            :maxLength="30"
+                                            labelFloat
+                                            fullWidth />
+
+
+                                <mu-date-picker
+                                            ref="eStart"
+                                            label="Start Date:" labelFloat fullWidth
+                                            okLabel="Ok"
+                                            cancelLabel="Cancel"
+                                            :dateTimeFormat="enDateFormat"
+                                            v-model="newEvent.startDate"/>
+
+
+                                <mu-date-picker
+                                            ref="eFinish"
+                                            label="End Date:" labelFloat fullWidth
+                                            okLabel="Ok"
+                                            cancelLabel="Cancel"
+                                            :dateTimeFormat="enDateFormat"
+                                            v-model="newEvent.endDate"/>
+
+                                <mu-text-field
+                                        ref="eBtn"
+                                        label="Button text:"
+                                        type="text"
+                                        v-model="newEvent.btnText"
+                                        :errorText="inputErrorText"
+                                        @textOverflow="handleInputOverflow"
+                                        :maxLength="15"
+                                        labelFloat
+                                        fullWidth />
+                            </mu-col>
+                        </mu-row>
+
+
+
+                        <mu-raised-button label="Next" @click="handleNext" primary/>
+                    </mu-step-content>
+                </mu-step>
+                <mu-step>
                     <mu-step-label><h1>General Info</h1></mu-step-label>
                     <mu-step-content>
                         <h3>I bet it will be great event! Just give an info about this event to your friends!</h3>
 
-                        <mu-raised-button label="Upload event image" @click="pickImage" primary/>
-                        <input
-                                type="file"
-                                style="display: none;"
-                                ref="imageInput"
-                                accept="image/*"
-                                @change="onFileUpload"/>
-                        <br>
-                        <img :src="newEvent.imageUrl" alt="" style="width: auto; max-height: 250px; margin: 20px auto;">
-                        <br>
+
 
                         <mu-row gutter>
-                            <mu-col width="100" tablet="50" desktop="50">
-                                <mu-text-field
 
-                                        v-validate
-                                        data-vv-rules="required|strict"
-                                        name="name"
-                                        data-vv-name="name"
-                                        :errorText="errors.first('email')"
-                                        ref="eName"
-                                        label="Event Name:"
-                                        type="text"
-                                        v-model="newEvent.name"
-                                        labelFloat
-                                        fullWidth />
-                            </mu-col>
-                            <mu-col width="100" tablet="50" desktop="50">
-                                <mu-text-field
-                                        ref="eInfo"
-                                        label="Short info:"
-                                        type="text"
-                                        v-model="newEvent.info"
-                                        :errorText="inputErrorText"
-                                        @textOverflow="handleInputOverflow"
-                                        :maxLength="30"
-                                        labelFloat
-                                        fullWidth />
-                            </mu-col>
-                            <mu-col width="100" tablet="50" desktop="50">
-                                <mu-date-picker
-                                        ref="eStart"
-                                        label="Start Date:" labelFloat fullWidth
-                                        okLabel="Ok"
-                                        cancelLabel="Cancel"
-                                        :dateTimeFormat="enDateFormat"
-                                        v-model="newEvent.startDate"/>
-                            </mu-col>
-                            <mu-col width="100" tablet="50" desktop="50">
-                                <mu-date-picker
-                                        ref="eFinish"
-                                        label="End Date:" labelFloat fullWidth
-                                        okLabel="Ok"
-                                        cancelLabel="Cancel"
-                                        :dateTimeFormat="enDateFormat"
-                                        v-model="newEvent.endDate"/>
-                            </mu-col>
                             <mu-col width="100" tablet="100" desktop="100">
                                 <mu-text-field
                                         v-model="newEvent.description"
@@ -78,15 +118,35 @@
                                         :maxLength="50000"/>
                             </mu-col>
                             <mu-col width="100" tablet="100" desktop="100">
-                                <mu-text-field
-                                        label="Event Map (paste url here):"
-                                        type="text"
-                                        v-model="newEvent.map"
-                                        labelFloat fullWidth />
+                                <p>Add points of your trip</p>
+                                <mu-timeline lineColor="black" lineType="solid">
+                                    <mu-timeline-item iconColor="gray">
+                                        <mu-raised-button label="Add location" primary/>
+                                        <!--<span>Place 1</span>-->
+                                    </mu-timeline-item>
+                                    <!--<mu-timeline-item lineType="solid">-->
+                                        <!--<span>Place 2</span>-->
+                                    <!--</mu-timeline-item>-->
+                                </mu-timeline>
+
+
+                                <div>
+                                    <iframe
+                                            width="600"
+                                            height="450"
+                                            frameborder="0" style="border:0"
+                                            src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAHJXhPMJK0nOhGWjIJopR8D9S_nQsd3E0&origin=Oslo+Norway&destination=Telemark+Norway&avoid=tolls|highways"
+                                            allowfullscreen>
+                                    </iframe>
+                                </div>
+
+
+
                             </mu-col>
                         </mu-row>
-                        <p>Great! It's time to invite friends! Press the Next button, mate!</p>
-                        <mu-raised-button label="Next" class="demo-step-button" @click="stepOneValidation" primary/>
+                        <p>Great! It's time to invite friends! Press the Next button!</p>
+                        <mu-raised-button label="Next" @click="handleNext" primary/>
+                        <mu-flat-button label="Previous" @click="handlePrev"/>
                     </mu-step-content>
                 </mu-step>
 
@@ -94,7 +154,7 @@
                 <mu-step>
                     <mu-step-label><h1>Invite friends</h1></mu-step-label>
                     <mu-step-content>
-                        <p>Invite your friends to this event</p>
+                        <h3>Invite your friends to this event!</h3>
                         <mu-auto-complete label="Friend's email"
                                           :maxSearchResults="5"
                                           labelFloat :dataSource="users"
@@ -179,11 +239,13 @@
                     startDate: '',
                     endDate: '',
                     info: '',
+                    btnText: '',
                     description: '',
-                    map: '',
-                    imageUrl: '',
+                    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/temm-dd89d.appspot.com/o/events%2Ftravel-dafault.jpg?alt=media&token=0cc1e9d1-aba9-415d-8b2f-ca5a7530b41f',
                     image: null,
                     invited: [],
+                    timeline: '',
+                    route: {},
                 },
                 enDateFormat: enDate,
                 input: '',
@@ -193,12 +255,16 @@
                 activeStep: 0,
                 inviteInputVal: '',
                 users: ['v.bodnar@qubstudio.com', 'aa@gmail.com', 'bb@gmail.com', 'cc@gmail.com'],
+                googleApiKey: 'AIzaSyAHJXhPMJK0nOhGWjIJopR8D9S_nQsd3E0',
             }
         },
         firebase: {
             events: {
                 source: db.ref('events')
             },
+        },
+        components: {
+
         },
         computed: {
             finished () {
@@ -207,13 +273,14 @@
         },
         methods: {
             handleInputOverflow (isOverflow) {
-                this.inputErrorText = isOverflow ? 'Wow wow, mate! Too much!' : ''
+                this.inputErrorText = isOverflow ? 'Wow wow, bro! Too much!' : ''
             },
             handleMultiLineOverflow (isOverflow) {
-                this.multiLineInputErrorText = isOverflow ? 'Wow wow, mate! Too much!' : ''
+                this.multiLineInputErrorText = isOverflow ? 'Wow wow, bro! Too much!' : ''
             },
             onSubmit(evt) {
                 this.$refs.progress.showProgress('Creating event!');
+
                 this.newEvent.author.name = this.$parent.usr.name;
                 this.newEvent.author.email = this.$parent.usr.email;
                 this.newEvent.author.photo = this.$parent.usr.photo;
@@ -294,26 +361,6 @@
                     this.newEvent.invited.splice(index, 1);
                 }
             },
-            stepOneValidation() {
-                let name, info, start, finish, i;
-                name = this.$refs.eName.value;
-                info = this.$refs.eInfo.value;
-                start = this.$refs.eStart.value;
-                finish = this.$refs.eFinish.value;
-                let arr = [name, info, start, finish];
-
-
-
-                    if (arr.some(v => v == 0)) {
-                        alert('Please enter required fields');
-                    }
-                    else {
-                        this.activeStep++
-                    }
-
-//                console.log(name, info, start, finish)
-//                this.activeStep++
-            }
         }
     };
 </script>
@@ -321,5 +368,17 @@
 <style lang="scss">
     .chip {
         margin-right: 10px;
+    }
+
+    .card {
+        max-width: 300px;
+    }
+
+    .card-img {
+        height: 200px;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
     }
 </style>

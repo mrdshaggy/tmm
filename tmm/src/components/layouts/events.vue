@@ -29,7 +29,7 @@
                         </mu-card-text>
                         <mu-card-actions>
                             <router-link :to="{ name: 'event', params: { event_id: event['.key'] }}">
-                                <mu-flat-button label="Check it!" primary/>
+                                <mu-raised-button :label="event.btnText" secondary/>
                             </router-link>
 
                             <!--<mu-flat-button label="Action 2"/>-->
@@ -64,7 +64,7 @@
                             </mu-card-text>
                             <mu-card-actions>
                                 <router-link :to="{ name: 'event', params: { event_id: event['.key'] }}">
-                                    <mu-flat-button label="Check it!" primary/>
+                                    <mu-raised-button :label="event.btnText" secondary/>
                                 </router-link>
                             </mu-card-actions>
                         </mu-card>
@@ -107,8 +107,8 @@
                 })
             },
             getEventsCounter() {
-//                this.eventsCounter = this.events.length;
-            }
+                this.eventsCounter = this.events.length;
+            },
         },
         mounted() {
             this.getEventsCounter;

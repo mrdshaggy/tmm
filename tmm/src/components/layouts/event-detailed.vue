@@ -10,8 +10,17 @@
             <br>
             <img :src="event.imageUrl" alt="">
             <br>
-        <div v-html="event.map"></div>
         </p>
+
+        <div id="map">
+            <iframe
+                    width="600"
+                    height="450"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAHJXhPMJK0nOhGWjIJopR8D9S_nQsd3E0&origin=Oslo+Norway&destination=Telemark+Norway&avoid=tolls|highways"
+                    allowfullscreen>
+            </iframe>
+        </div>
 
         <mu-raised-button
                 label="Remove Event"
